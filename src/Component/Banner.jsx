@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import styled from "styled-components";
-import { Button } from "@mui/material";
+import { Button, StyledEngineProvider } from "@mui/material";
 import Search from "./Search";
 const Wrapper = styled.div`
   height: 60vh;
@@ -17,48 +17,55 @@ const BannerInfo = styled.div`
   padding-right: 50px;
   padding-bottom: 40px;
   width: 300px;
-  Button {
-    background-color: #ff7779;
-    color: white;
-    text-transform: inherit;
-    margin-top: 20px;
-    font-weight: 600;
-    &:hover {
-      background-color: white;
-      color: #ff7779;
-    }
-  }
   h5 {
     margin-top: 10px;
+  }
+`;
+const BannerInfoButton = styled(Button)`
+  background-color: #ff7779;
+  color: white;
+  text-transform: inherit;
+  margin-top: 20px;
+  font-weight: 600;
+  &:hover {
+    background-color: white;
+    color: #ff7779;
   }
 `;
 const BannerSearch = styled.div`
   display: flex;
   flex-direction: column;
-  Button {
-    background-color: white !important;
-    font-weight: 900 !important;
-    text-transform: inherit !important;
-    color: #ff7779 !important;
-  }
+`;
+
+const BannerSearchButton = styled(Button)`
+  background-color: white !important;
+  font-weight: 900 !important;
+  text-transform: inherit !important;
+  color: #ff7779 !important;
 `;
 function Banner() {
   const [showSearch, setShowSearch] = useState(false);
   return (
     <Wrapper>
-      <BannerSearch>
-        <Button variant="outlined" onClick={() => setShowSearch(!showSearch)}>
-          Search Dates
-        </Button>
-        {showSearch && <Search />}
-      </BannerSearch>
-      <BannerInfo>
-        <h1>Get out and stretch your imagination</h1>
-        <h5>
-          Plan a different kind of getaway to uncover the hidden gems near you.
-        </h5>
-        <Button variant="outlined">Explore NearBy</Button>
-      </BannerInfo>
+      <StyledEngineProvider injectFirst>
+        <BannerSearch>
+          <BannerSearchButton
+            variant="outlined"
+            onClick={() => setShowSearch(!showSearch)}
+          >
+            {showSearch ? "Hide" : "SearchDates"}
+          </BannerSearchButton>
+          {showSearch && <Search />}
+        </BannerSearch>
+        <BannerInfo>
+          <h1>Get out and stretch your imagination</h1>
+          <h5>
+            Plan a different kind of getaway to uncover the hidden gems near
+            you.
+          </h5>
+          <BannerInfoButton variant="outlined">Explore NearBy</BannerInfoButton>
+        </BannerInfo>
+      </StyledEngineProvider>
     </Wrapper>
   );
 }

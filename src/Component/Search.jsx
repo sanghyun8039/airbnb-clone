@@ -3,12 +3,51 @@ import styled from "styled-components";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-
+import { Button, StyledEngineProvider } from "@mui/material";
+import PeopleIcon from "@mui/icons-material/People";
 const Wrapper = styled.div`
   position: absolute;
   top: 35px;
   left: 25%;
   width: 100vw;
+  Button {
+  }
+`;
+const Header2 = styled.h2`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 559px;
+  padding: 10px;
+  background-color: white;
+  position: absolute;
+  top: 325px;
+`;
+
+const Input = styled.input`
+  width: 539px;
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  height: 30px;
+  top: 395px;
+  border: none;
+  &:focus {
+    outline-style: none;
+  }
+`;
+const MyButton = styled(Button)`
+  position: absolute;
+  left: 0;
+  top: 455px;
+  background-color: #ff7779;
+  color: white;
+  text-transform: inherit !important;
+  width: 579px;
+  &:hover {
+    background-color: white;
+    color: #ff7779;
+  }
 `;
 
 function Search() {
@@ -28,6 +67,14 @@ function Search() {
   return (
     <Wrapper>
       <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} />
+      <Header2>
+        Number of guests
+        <PeopleIcon />
+      </Header2>
+      <Input min={0} defaultValue={2} type="number" />
+      <StyledEngineProvider injectFirst>
+        <MyButton>Search AirBNB</MyButton>
+      </StyledEngineProvider>
     </Wrapper>
   );
 }
