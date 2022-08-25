@@ -5,6 +5,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { Button, StyledEngineProvider } from "@mui/material";
 import PeopleIcon from "@mui/icons-material/People";
+import { useNavigate } from "react-router-dom";
 const Wrapper = styled.div`
   position: absolute;
   top: 35px;
@@ -51,6 +52,7 @@ const MyButton = styled(Button)`
 `;
 
 function Search() {
+  const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -73,7 +75,7 @@ function Search() {
       </Header2>
       <Input min={0} defaultValue={2} type="number" />
       <StyledEngineProvider injectFirst>
-        <MyButton>Search AirBNB</MyButton>
+        <MyButton onClick={() => navigate("/search")}>Search AirBNB</MyButton>
       </StyledEngineProvider>
     </Wrapper>
   );

@@ -2,6 +2,10 @@ import "./App.css";
 import styled from "styled-components";
 import HomePage from "./Page/HomePage";
 import Header from "./Component/Header";
+import Footer from "./Component/Footer";
+import SearchPage from "./Page/SearchPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 const Wrapper = styled.div`
   margin: 0;
 `;
@@ -9,8 +13,14 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
-      <Header></Header>
-      <HomePage></HomePage>
+      <Router>
+        <Header></Header>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/search" element={<SearchPage />} />
+        </Routes>
+        <Footer></Footer>
+      </Router>
     </Wrapper>
   );
 }

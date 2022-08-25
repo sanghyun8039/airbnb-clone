@@ -30,9 +30,24 @@ function HomePage() {
         />
       </HomeSection>
       <HomeSection>
-        <Card />
-        <Card />
-        <Card />
+        <Card
+          src="https://thespaces.com/wp-content/uploads/2017/08/Courtesy-of-Airbnb.jpg"
+          title="Penthouse in London"
+          description="Enjoy the amazing sights of London with this stunning penthouse"
+          price="350/night"
+        />
+        <Card
+          src="https://thespaces.com/wp-content/uploads/2017/08/Courtesy-of-Airbnb.jpg"
+          title="Penthouse in London"
+          description="Enjoy the amazing sights of London with this stunning penthouse"
+          price="350/night"
+        />
+        <Card
+          src="https://thespaces.com/wp-content/uploads/2017/08/Courtesy-of-Airbnb.jpg"
+          title="Penthouse in London"
+          description="Enjoy the amazing sights of London with this stunning penthouse"
+          price="350/night"
+        />
       </HomeSection>
       <HomeSection>
         <Card />

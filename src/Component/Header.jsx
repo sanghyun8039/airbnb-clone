@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LanguageIcon from "@mui/icons-material/Language";
 import { Avatar } from "@mui/material";
+import { Link } from "react-router-dom";
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -46,10 +47,12 @@ const HeaderRight = styled.div`
 function Header() {
   return (
     <Wrapper>
-      <HeaderIcon
-        src="https://i.pinimg.com/originals/3c/bf/be/3cbfbe148597341fa56f2f87ade90956.png"
-        alt=""
-      />
+      <Link to="/">
+        <HeaderIcon
+          src="https://i.pinimg.com/originals/3c/bf/be/3cbfbe148597341fa56f2f87ade90956.png"
+          alt=""
+        />
+      </Link>
       <HeaderCenter>
         <input type={Text} />
         <SearchIcon />

@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import styled from "styled-components";
 import { Button, StyledEngineProvider } from "@mui/material";
 import Search from "./Search";
+import { useNavigate } from "react-router-dom";
 const Wrapper = styled.div`
   height: 60vh;
   position: relative;
@@ -20,18 +21,19 @@ const BannerInfo = styled.div`
   h5 {
     margin-top: 10px;
   }
-`;
-const BannerInfoButton = styled(Button)`
-  background-color: #ff7779;
-  color: white;
-  text-transform: inherit;
-  margin-top: 20px;
-  font-weight: 600;
-  &:hover {
-    background-color: white;
-    color: #ff7779;
+  Button {
+    background-color: #ff7779;
+    color: white;
+    text-transform: inherit;
+    margin-top: 20px;
+    font-weight: 600;
+    &:hover {
+      background-color: white;
+      color: #ff7779;
+    }
   }
 `;
+
 const BannerSearch = styled.div`
   display: flex;
   flex-direction: column;
@@ -44,6 +46,7 @@ const BannerSearchButton = styled(Button)`
   color: #ff7779 !important;
 `;
 function Banner() {
+  const navigate = useNavigate();
   const [showSearch, setShowSearch] = useState(false);
   return (
     <Wrapper>
@@ -63,7 +66,9 @@ function Banner() {
             Plan a different kind of getaway to uncover the hidden gems near
             you.
           </h5>
-          <BannerInfoButton variant="outlined">Explore NearBy</BannerInfoButton>
+          <Button onClick={() => navigate("/search")} variant="outlined">
+            Explore NearBy
+          </Button>
         </BannerInfo>
       </StyledEngineProvider>
     </Wrapper>
